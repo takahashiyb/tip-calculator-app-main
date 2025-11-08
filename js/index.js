@@ -27,11 +27,13 @@ function addRadioButtonFunction() {
       }
 
       this.classList.add("selected");
+      this.setAttribute("aria-selected", "true");
       radiogroup.dataset.selected = this.id;
 
       if (previous !== "none") {
         const elementPrevious = document.getElementById(previous);
         elementPrevious.classList.remove("selected");
+        elementPrevious.setAttribute("aria-selected", "false");
       }
 
       const inputCustomTip = document.getElementById("custom-tip");

@@ -14,17 +14,6 @@
 
     <title>Frontend Mentor | Tip calculator app</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -61,22 +50,59 @@
           </div>
         </div>
         <div id="tip-percent" class="input-wrapper">
-          <span class="input-title">Select Tip %</span>
-          <div id="radiogroup-tip" role="radiogroup" data-selected="none">
-            <button id="radio1" class="radiobutton-tip" data-tip="5">5%</button>
-            <button id="radio2" class="radiobutton-tip" data-tip="10">
+          <span id="tip-title" class="input-title">Select Tip %</span>
+          <div
+            id="radiogroup-tip"
+            role="radiogroup"
+            data-selected="none"
+            aria-labelledby="tip-title"
+          >
+            <button
+              id="radio1"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="5"
+            >
+              5%
+            </button>
+            <button
+              id="radio2"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="10"
+            >
               10%
             </button>
-            <button id="radio3" class="radiobutton-tip" data-tip="15">
+            <button
+              id="radio3"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="15"
+            >
               15%
             </button>
-            <button id="radio4" class="radiobutton-tip" data-tip="25">
+            <button
+              id="radio4"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="25"
+            >
               25%
             </button>
-            <button id="radio5" class="radiobutton-tip" data-tip="50">
+            <button
+              id="radio5"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="50"
+            >
               50%
             </button>
-            <button id="radio6" class="radiobutton-tip" data-tip="custom">
+            <button
+              id="radio6"
+              class="radiobutton-tip"
+              aria-selected="false"
+              data-tip="custom"
+            >
               Custom
             </button>
           </div>

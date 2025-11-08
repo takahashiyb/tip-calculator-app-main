@@ -86,6 +86,7 @@ main {
   background-color: var(--color-white);
   padding: var(--spacing-0400) var(--spacing-0300);
   border-radius: 8px;
+  max-width: 920px;
 }
 
 .radiobutton-tip {
@@ -229,4 +230,12 @@ input[type="number"] {
   main {
     padding: var(--spacing-0400);
   }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
