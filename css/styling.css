@@ -77,8 +77,8 @@ body {
 }
 
 header {
-  font: var(--font-2);
-  letter-spacing: var(--letterspacing-2);
+  font: var(--font-4);
+  letter-spacing: var(--letterspacing-4);
   color: var(--color-grey-600);
 }
 
