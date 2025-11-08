@@ -24,18 +24,116 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/styling.css" />
   </head>
   <body>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
-      <a
-        href="https://www.frontendmentor.io/profile/takahashiyb"
-        target="_blank"
-        >takahashiyb</a
-      >.
-    </div>
+    <header>
+      <h1><span>SPLI</span><span>TTER</span></h1>
+    </header>
+    <main>
+      <section id="input-section">
+        <div id="bill" class="input-wrapper input-number">
+          <div>
+            <label for="input-bill" class="input-title">bill</label>
+            <span id="error-bill" class="error-message" hidden inert
+              >Can't be zero</span
+            >
+          </div>
+          <div>
+            <img src="./images/icon-dollar.svg" alt="icon-dollar" />
+            <input
+              type="number"
+              id="input-bill"
+              class="input-required"
+              aria-errormessage="error-bill"
+              required
+            />
+          </div>
+        </div>
+        <div id="tip-percent" class="input-wrapper">
+          <span class="input-title">select tip</span>
+          <div id="radiogroup-tip" role="radiogroup" data-selected="none">
+            <button id="radio1" class="radiobutton-tip" data-tip="5">5%</button>
+            <button id="radio2" class="radiobutton-tip" data-tip="10">
+              10%
+            </button>
+            <button id="radio3" class="radiobutton-tip" data-tip="15">
+              15%
+            </button>
+            <button id="radio4" class="radiobutton-tip" data-tip="25">
+              25%
+            </button>
+            <button id="radio5" class="radiobutton-tip" data-tip="50">
+              50%
+            </button>
+            <button id="radio6" class="radiobutton-tip" data-tip="custom">
+              Custom
+            </button>
+          </div>
+        </div>
+        <div id="custom-tip" class="input-wrapper input-number" hidden inert>
+          <label for="input-custom-tip" class="input-title">Custom tip</label>
+          <div>
+            <input type="number" id="input-custom-tip" /> <span>%</span>
+          </div>
+        </div>
+        <div id="population" class="input-wrapper input-number">
+          <div>
+            <label for="input-population" class="input-title"
+              >Number of People</label
+            >
+            <span id="error-population" class="error-message" hidden inert
+              >Can't be Zero</span
+            >
+          </div>
+          <div>
+            <img src="./images/icon-person.svg" alt="icon-person" />
+            <input
+              type="number"
+              id="input-population"
+              class="input-required"
+              aria-errormessage="error-population"
+              required
+            />
+          </div>
+        </div>
+      </section>
+      <section id="output-section">
+        <div id="tip-amount" class="amount-wrapper">
+          <div>
+            <span class="amount-title">tip amount</span>
+            <span class="amount-context">/ person</span>
+          </div>
+          <span class="amount-amount"
+            ><img src="./images/icon-dollar.svg" alt="icon-dollar" />0.00</span
+          >
+        </div>
+        <div id="split-amount" class="amount-wrapper">
+          <div>
+            <span class="amount-title">total</span>
+            <span class="amount-context">/ person</span>
+          </div>
+          <span class="amount-amount"
+            ><img src="./images/icon-dollar.svg" alt="icon-dollar" />0.00</span
+          >
+        </div>
+        <button id="reset-button">reset</button>
+      </section>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a
+          href="https://www.frontendmentor.io/profile/takahashiyb"
+          target="_blank"
+          >takahashiyb</a
+        >.
+      </div>
+    </footer>
+    <script src="./js/index.js"></script>
   </body>
 </html>
