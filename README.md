@@ -37,8 +37,8 @@ Want some support on the challenge? [Join our community](https://www.frontendmen
 
 ### Links
 
-- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/)
-- Live Site URL: [click here for Live Site](https://github.com/takahashiyb/)
+- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/tip-calculator-app-main)
+- Live Site URL: [click here for Live Site](https://takahashiyb.github.io/tip-calculator-app-main/)
 
 ## My process
 
@@ -53,6 +53,8 @@ Want some support on the challenge? [Join our community](https://www.frontendmen
 ### What I learned
 
 For this exercise, my time was spent well. I started with laying out the elements without styling which gave me some solid ground where everything was in place, then, I scripted all that I needed to script, and only after did I style everything to the design. It made me realize that this the optimal way for me where I'm not losing focus while working on the challenge. It was important that I established my workflow for this, since I don't have to think about what to do next whenever I finish a chunk of the work, I just had to move on to the next step, rather than still getting stuck just wondering which part is more effective or more interesting to work on next. I also learned to refactor functions to a point where I felt everything was organized and less complicated to read.
+
+I just learned as well to not make a node_modules folder since that only works with npm and will not be saved to github if it isn't made with npm or to mimick npm. Instead, I had to make a new folder with a name like "lib"
 
 ## Author
 

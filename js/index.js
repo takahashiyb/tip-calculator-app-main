@@ -1,4 +1,4 @@
-import { Decimal } from "../node_modules/decimal.mjs";
+import { Decimal } from "../libs/decimal.mjs";
 
 const defaultValues = {
   bill: "",
@@ -237,7 +237,3 @@ function checkEmptyValues() {
     button.setAttribute("inert", "");
   }
 }
-
-document.getElementById("input-bill").value = 142.55;
-document.getElementById("input-population").value = 5;
-document.getElementById("radio3").dispatchEvent(new Event("click"));
