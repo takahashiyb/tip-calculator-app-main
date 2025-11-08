@@ -5,7 +5,6 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-green-200);
 }
 
 /* Layout */
@@ -13,6 +12,16 @@ body {
 header h1 {
   display: grid;
   justify-items: center;
+}
+
+main {
+  display: grid;
+  gap: var(--spacing-0400);
+}
+
+#input-section {
+  display: grid;
+  gap: var(--spacing-0400);
 }
 
 .input-wrapper {
@@ -64,5 +73,11 @@ header h1 {
 @media (min-width: 767px) {
   #tip-percent div {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1023px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

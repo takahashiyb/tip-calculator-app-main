@@ -72,6 +72,16 @@ html {
 
 /* Page Styling */
 
+body {
+  background-color: var(--color-grey-200);
+}
+
+header {
+  font: var(--font-2);
+  letter-spacing: var(--letterspacing-2);
+  color: var(--color-grey-600);
+}
+
 main {
   background-color: var(--color-white);
   padding: var(--spacing-0400) var(--spacing-0300);
@@ -111,7 +121,7 @@ main {
 
   img {
     height: 16px;
-    width: 13px;
+    width: 11px;
   }
 }
 
@@ -146,6 +156,19 @@ input[type="number"] {
   color: var(--color-grey-500);
 }
 
+#input-custom-tip {
+  + span {
+    font: var(--font-3);
+    letter-spacing: var(--font-3);
+  }
+}
+
+#input-custom-tip:placeholder-shown {
+  + span {
+    color: var(--color-grey-500);
+  }
+}
+
 .error-message {
   font: var(--font-5);
   letter-spacing: var(--letterspacing-5);
@@ -177,4 +200,32 @@ input[type="number"] {
 }
 
 #reset-button {
+  background-color: var(--color-green-400);
+  font: var(--font-4);
+  letter-spacing: var(--letterspacing-4);
+  color: var(--color-green-800);
+  padding: var(--spacing-0100) var(--spacing-0600);
+  border: none;
+  border-radius: 5px;
+}
+
+#reset-button[inert] {
+  background-color: var(--color-green-750);
+}
+
+#reset-button:hover {
+  background-color: var(--color-green-200);
+}
+
+@media (min-width: 767px) {
+  main {
+    padding: var(--spacing-1000) var(--spacing-0600);
+    border-radius: 25px;
+  }
+}
+
+@media (min-width: 1023px) {
+  main {
+    padding: var(--spacing-0400);
+  }
 }

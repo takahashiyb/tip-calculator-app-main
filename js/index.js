@@ -12,6 +12,7 @@ addRadioButtonFunction();
 addInputErrorMessageTriggers();
 addTipCalculationFunctions();
 delegateResetFuntion();
+checkEmptyValues();
 
 function addRadioButtonFunction() {
   const radiogroup = document.getElementById("radiogroup-tip");
@@ -44,6 +45,8 @@ function addRadioButtonFunction() {
         inputCustomTip.removeAttribute("hidden");
         inputCustomTip.removeAttribute("inert");
       }
+
+      checkEmptyValues();
     });
   });
 }
@@ -64,6 +67,7 @@ function addInputErrorMessageTriggers() {
         errorMessage.setAttribute("inert", "");
         this.setAttribute("aria-invalid", "false");
       }
+      checkEmptyValues();
     });
   });
 }
@@ -201,7 +205,35 @@ function delegateResetFuntion() {
 
     document.getElementById("amount-total").innerHTML =
       defaultValues.totalPerPerson;
+
+    checkEmptyValues();
   });
+}
+
+function checkEmptyValues() {
+  let noValues = true;
+
+  const input = document.querySelectorAll(".input-required");
+
+  input.forEach((element) => {
+    if (element.value !== "") {
+      noValues = false;
+    }
+  });
+
+  const radiogroup = document.getElementById("radiogroup-tip");
+
+  if (radiogroup.dataset.selected !== "none") {
+    noValues = false;
+  }
+
+  const button = document.getElementById("reset-button");
+
+  if (noValues === false) {
+    button.removeAttribute("inert");
+  } else {
+    button.setAttribute("inert", "");
+  }
 }
 
 document.getElementById("input-bill").value = 142.55;
