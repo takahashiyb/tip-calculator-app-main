@@ -45,7 +45,7 @@
             <input
               type="number"
               id="input-bill"
-              class="input-required"
+              class="input-required element-input-number"
               aria-errormessage="error-bill"
               required
             />
@@ -75,7 +75,12 @@
         <div id="custom-tip" class="input-wrapper input-number" hidden inert>
           <label for="input-custom-tip" class="input-title">Custom tip</label>
           <div>
-            <input type="number" id="input-custom-tip" /> <span>%</span>
+            <input
+              type="number"
+              id="input-custom-tip"
+              class="element-input-number"
+            />
+            <span>%</span>
           </div>
         </div>
         <div id="population" class="input-wrapper input-number">
@@ -92,7 +97,7 @@
             <input
               type="number"
               id="input-population"
-              class="input-required"
+              class="input-required element-input-number"
               aria-errormessage="error-population"
               required
             />
@@ -106,7 +111,10 @@
             <span class="amount-context">/ person</span>
           </div>
           <span class="amount-amount"
-            ><img src="./images/icon-dollar.svg" alt="icon-dollar" />0.00</span
+            ><img src="./images/icon-dollar.svg" alt="icon-dollar" /><span
+              id="amount-tip"
+              >0.00</span
+            ></span
           >
         </div>
         <div id="split-amount" class="amount-wrapper">
@@ -115,7 +123,10 @@
             <span class="amount-context">/ person</span>
           </div>
           <span class="amount-amount"
-            ><img src="./images/icon-dollar.svg" alt="icon-dollar" />0.00</span
+            ><img src="./images/icon-dollar.svg" alt="icon-dollar" /><span
+              id="amount-total"
+              >0.00</span
+            ></span
           >
         </div>
         <button id="reset-button">reset</button>
@@ -134,6 +145,6 @@
         >.
       </div>
     </footer>
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js" type="module"></script>
   </body>
 </html>
