@@ -1,3 +1,180 @@
+/* Reset */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Variables */
+
+:root {
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(0, 0, 0);
+
+  /* grey */
+  --color-grey-600: rgb(61, 102, 102);
+  --color-grey-550: rgb(82, 120, 120);
+  --color-grey-500: rgb(94, 122, 125);
+  --color-grey-400: rgb(127, 157, 159);
+  --color-grey-300: rgb(158, 187, 189);
+  --color-grey-200: rgb(197, 228, 231);
+  --color-grey-050: rgb(243, 249, 250);
+
+  /* green */
+  --color-green-900: rgb(0, 71, 75);
+  --color-green-800: rgb(8, 92, 97);
+  --color-green-750: rgb(13, 104, 109);
+  --color-green-400: rgb(38, 194, 174);
+  --color-green-200: rgb(159, 232, 223);
+
+  /* orange */
+  --color-orange-400: rgb(225, 112, 82);
+
+  /* Typography */
+
+  --font-1: 700 3rem/1.479 "Space Mono";
+  --letterspacing-1: -0.00625em;
+
+  --font-2: 700 2rem/1.469 "Space Mono";
+  --letterspacing-2: -0.0419em;
+
+  --font-3: 700 1.5rem/1.5 "Space Mono";
+  --letterspacing-3: 0em;
+
+  --font-4: 700 1.25rem/1.5 "Space Mono";
+  --letterspacing-4: 0em;
+
+  --font-5: 700 1rem/1.5 "Space Mono";
+  --letterspacing-5: 0em;
+
+  --font-6: 700 0.8125rem/1.462 "Space Mono";
+  --letterspacing-6: 0em;
+
+  /* Spacing */
+
+  --spacing-0: 0px;
+  --spacing-0100: 8px;
+  --spacing-0200: 16px;
+  --spacing-0300: 24px;
+  --spacing-0400: 32px;
+  --spacing-0600: 48px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1500: 120px;
+  --spacing-1600: 128px;
+}
+
+/* Page Styling */
+
+main {
+  background-color: var(--color-white);
+  padding: var(--spacing-0400) var(--spacing-0300);
+  border-radius: 8px;
+}
+
+.radiobutton-tip {
+  background-color: var(--color-green-900);
+  border: none;
+  font: var(--font-3);
+  letter-spacing: var(--letterspacing-3);
+  color: var(--color-grey-050);
+  padding: var(--spacing-0100) var(--spacing-0200);
+  border-radius: 5px;
+}
+
 .radiobutton-tip.selected {
-  background-color: green;
+  background-color: var(--color-green-400);
+  color: var(--color-green-900);
+}
+
+.radiobutton-tip:hover {
+  background-color: var(--color-green-200);
+  color: var(--color-green-900);
+}
+
+.input-title {
+  font: var(--font-5);
+  letter-spacing: var(--letterspacing-5);
+  color: var(--color-grey-500);
+}
+
+.input-number div:nth-child(2) {
+  background-color: var(--color-grey-050);
+  border-radius: 5px;
+  padding: var(--spacing-0100) var(--spacing-0200);
+
+  img {
+    height: 16px;
+    width: 13px;
+  }
+}
+
+.input-number div:nth-child(2):has(input[aria-invalid="true"]) {
+  border: solid 3px var(--color-orange-400);
+}
+
+.input-number div:nth-child(2):has(input:focus) {
+  border: solid 3px var(--color-green-400);
+}
+
+.element-input-number {
+  background-color: transparent;
+  font: var(--font-3);
+  letter-spacing: var(--font-3);
+  text-align: right;
+  border: none;
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.element-input-number::placeholder {
+  color: var(--color-grey-500);
+}
+
+.error-message {
+  font: var(--font-5);
+  letter-spacing: var(--letterspacing-5);
+  color: var(--color-orange-400);
+}
+
+#output-section {
+  background-color: var(--color-green-900);
+  padding: var(--spacing-0300) var(--spacing-0400);
+  border-radius: 15px;
+}
+
+.amount-title {
+  font: var(--font-5);
+  letter-spacing: var(--letterspacing-5);
+  color: var(--color-white);
+}
+
+.amount-context {
+  font: var(--font-6);
+  letter-spacing: var(--letterspacing-6);
+  color: var(--color-grey-400);
+}
+
+.amount-amount span {
+  font: var(--font-1);
+  letter-spacing: var(--letterspacing-1);
+  color: var(--color-green-400);
+}
+
+#reset-button {
 }

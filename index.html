@@ -24,6 +24,14 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./css/styling.css" />
   </head>
@@ -35,7 +43,7 @@
       <section id="input-section">
         <div id="bill" class="input-wrapper input-number">
           <div>
-            <label for="input-bill" class="input-title">bill</label>
+            <label for="input-bill" class="input-title">Bill</label>
             <span id="error-bill" class="error-message" hidden inert
               >Can't be zero</span
             >
@@ -47,12 +55,13 @@
               id="input-bill"
               class="input-required element-input-number"
               aria-errormessage="error-bill"
+              placeholder="0"
               required
             />
           </div>
         </div>
         <div id="tip-percent" class="input-wrapper">
-          <span class="input-title">select tip</span>
+          <span class="input-title">Select Tip %</span>
           <div id="radiogroup-tip" role="radiogroup" data-selected="none">
             <button id="radio1" class="radiobutton-tip" data-tip="5">5%</button>
             <button id="radio2" class="radiobutton-tip" data-tip="10">
@@ -73,12 +82,13 @@
           </div>
         </div>
         <div id="custom-tip" class="input-wrapper input-number" hidden inert>
-          <label for="input-custom-tip" class="input-title">Custom tip</label>
+          <label for="input-custom-tip" class="input-title">Custom Tip</label>
           <div>
             <input
               type="number"
               id="input-custom-tip"
               class="element-input-number"
+              placeholder="0"
             />
             <span>%</span>
           </div>
@@ -99,37 +109,34 @@
               id="input-population"
               class="input-required element-input-number"
               aria-errormessage="error-population"
+              placeholder="0"
               required
             />
           </div>
         </div>
       </section>
       <section id="output-section">
-        <div id="tip-amount" class="amount-wrapper">
-          <div>
-            <span class="amount-title">tip amount</span>
-            <span class="amount-context">/ person</span>
+        <div>
+          <div id="tip-amount" class="amount-wrapper">
+            <div>
+              <span class="amount-title">Tip Amount</span>
+              <span class="amount-context">/ person</span>
+            </div>
+            <span class="amount-amount"
+              ><span>$</span><span id="amount-tip">0.00</span></span
+            >
           </div>
-          <span class="amount-amount"
-            ><img src="./images/icon-dollar.svg" alt="icon-dollar" /><span
-              id="amount-tip"
-              >0.00</span
-            ></span
-          >
-        </div>
-        <div id="split-amount" class="amount-wrapper">
-          <div>
-            <span class="amount-title">total</span>
-            <span class="amount-context">/ person</span>
+          <div id="split-amount" class="amount-wrapper">
+            <div>
+              <span class="amount-title">Total</span>
+              <span class="amount-context">/ person</span>
+            </div>
+            <span class="amount-amount"
+              ><span>$</span><span id="amount-total">0.00</span></span
+            >
           </div>
-          <span class="amount-amount"
-            ><img src="./images/icon-dollar.svg" alt="icon-dollar" /><span
-              id="amount-total"
-              >0.00</span
-            ></span
-          >
         </div>
-        <button id="reset-button">reset</button>
+        <button id="reset-button">RESET</button>
       </section>
     </main>
     <footer>

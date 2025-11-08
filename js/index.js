@@ -58,9 +58,11 @@ function addInputErrorMessageTriggers() {
       if (!this.value || this.value === "0") {
         errorMessage.removeAttribute("hidden");
         errorMessage.removeAttribute("inert");
+        this.setAttribute("aria-invalid", "true");
       } else {
         errorMessage.setAttribute("hidden", "");
         errorMessage.setAttribute("inert", "");
+        this.setAttribute("aria-invalid", "false");
       }
     });
   });
@@ -93,33 +95,44 @@ function runDownTipCalculation() {
 }
 
 function getInputs() {
-  const bill = new Decimal(document.getElementById("input-bill").value);
+  const bill = document.getElementById("input-bill").value;
 
   const elementSelectedTipId =
     document.getElementById("radiogroup-tip").dataset.selected;
-  let tip = new Decimal("0");
+  let tip = 0;
 
   if (elementSelectedTipId === "none") {
   } else if (elementSelectedTipId === "radio6") {
-    tip = new Decimal(document.getElementById("input-custom-tip").value / 100);
+    tip = document.getElementById("input-custom-tip").value / 100;
   } else {
-    tip = new Decimal(
-      document.getElementById(elementSelectedTipId).dataset.tip / 100
-    );
+    tip = document.getElementById(elementSelectedTipId).dataset.tip / 100;
   }
 
-  const population = new Decimal(
-    document.getElementById("input-population").value
-  );
+  const population = document.getElementById("input-population").value;
 
-  return {
-    bill: bill,
-    tip: tip,
-    population: population,
-  };
+  if (
+    !bill ||
+    !tip ||
+    !population ||
+    bill === "0" ||
+    tip === "0" ||
+    population === "0"
+  ) {
+    return "error";
+  } else {
+    return {
+      bill: new Decimal(bill),
+      tip: new Decimal(tip),
+      population: new Decimal(population),
+    };
+  }
 }
 
 function calculateValues(inputs) {
+  if (inputs === "error") {
+    return "error";
+  }
+
   const bill = inputs.bill;
   const tip = inputs.tip;
   const population = inputs.population;
@@ -140,12 +153,19 @@ function calculateValues(inputs) {
 }
 
 function displayAmounts(objectValues) {
-  const tip = objectValues.tip;
-  const total = objectValues.total;
-
   const elementAmountTip = document.getElementById("amount-tip");
 
   const elementAmountTotal = document.getElementById("amount-total");
+
+  if (objectValues === "error") {
+    const zero = new Decimal("0");
+    elementAmountTip.innerHTML = zero.toFixed(2);
+    elementAmountTotal.innerHTML = zero.toFixed(2);
+    return;
+  }
+
+  const tip = objectValues.tip;
+  const total = objectValues.total;
 
   elementAmountTip.innerHTML = tip.toFixed(2);
   elementAmountTotal.innerHTML = total.toFixed(2);

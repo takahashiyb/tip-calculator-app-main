@@ -1,29 +1,18 @@
-/* Reset */
-
-* {
-  margin: 0px;
-  padding: 0px;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-}
-
-/* Default */
+/* Centering page */
 
 body {
   height: 100vh;
   display: grid;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-green-200);
 }
+
+/* Layout */
 
 header h1 {
   display: grid;
   justify-items: center;
-  text-transform: uppercase;
 }
 
 .input-wrapper {
@@ -31,17 +20,20 @@ header h1 {
   align-items: center;
 }
 
-.input-number div {
+.input-wrapper div {
   display: flex;
+  justify-content: space-between;
 }
 
-.input-title {
-  text-transform: capitalize;
+.input-number div {
+  display: flex;
+  align-items: center;
 }
 
 #tip-percent div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-0200);
 }
 
 #custom-tip[hidden] {
@@ -50,6 +42,7 @@ header h1 {
 
 #output-section {
   display: grid;
+  row-gap: var(--spacing-1600);
 }
 
 .amount-wrapper {
@@ -59,14 +52,6 @@ header h1 {
   div {
     display: grid;
   }
-}
-
-.amount-title {
-  text-transform: capitalize;
-}
-
-#reset-button {
-  text-transform: uppercase;
 }
 
 .amount-amount {
