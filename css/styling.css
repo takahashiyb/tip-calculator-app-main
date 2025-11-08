@@ -200,6 +200,7 @@ input[type="number"] {
 }
 
 #reset-button {
+  max-height: 48px;
   background-color: var(--color-green-400);
   font: var(--font-4);
   letter-spacing: var(--letterspacing-4);

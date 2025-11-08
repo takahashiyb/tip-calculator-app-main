@@ -52,6 +52,7 @@ main {
 #output-section {
   display: grid;
   row-gap: var(--spacing-1600);
+  align-content: space-between;
 }
 
 .amount-wrapper {
