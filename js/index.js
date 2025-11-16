@@ -36,7 +36,7 @@ function addRadioButtonFunction() {
         elementPrevious.setAttribute("aria-checked", "false");
       }
 
-      const inputCustomTip = document.getElementById("custom-tip");
+      const inputCustomTip = document.getElementById("input-custom-tip");
 
       if (previous === "radio6") {
         inputCustomTip.setAttribute("hidden", "");
@@ -193,11 +193,12 @@ function delegateResetFuntion() {
       radiogroup.dataset.selected = "none";
     }
 
-    const divCustomTip = document.getElementById("custom-tip");
-    divCustomTip.setAttribute("hidden", "");
-    divCustomTip.setAttribute("inert", "");
+    const inputCustomTip = document.getElementById("input-custom-tip");
+    inputCustomTip.setAttribute("hidden", "");
+    inputCustomTip.setAttribute("inert", "");
 
-    document.getElementById("input-custom-tip").value = defaultValues.customTip;
+    document.getElementById("input-custom-tip").value =
+      defaultValues.customTip;
 
     document.getElementById("input-population").value =
       defaultValues.population;
