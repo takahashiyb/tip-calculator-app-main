@@ -1,0 +1,164 @@
+import { Decimal } from "../libs/decimal.mjs";
+
+export function addRadioButtonFunction() {
+  const radiogroup = document.getElementById("radiogroup-tip");
+  const radiobuttons = document.querySelectorAll(".radiobutton-tip");
+
+  radiobuttons.forEach((radiobutton) => {
+    radiobutton.addEventListener("click", function () {
+      const previous = radiogroup.dataset.selected;
+
+      if (this.id === previous) {
+        return;
+      }
+
+      this.classList.add("selected");
+      this.setAttribute("aria-checked", "true");
+      radiogroup.dataset.selected = this.id;
+
+      if (previous !== "none") {
+        const elementPrevious = document.getElementById(previous);
+        elementPrevious.classList.remove("selected");
+        elementPrevious.setAttribute("aria-checked", "false");
+      }
+
+      const inputCustomTip = document.getElementById("custom-tip");
+
+      if (previous === "radio6") {
+        inputCustomTip.setAttribute("hidden", "");
+        inputCustomTip.setAttribute("inert", "");
+      }
+
+      if (this.id === "radio6") {
+        inputCustomTip.removeAttribute("hidden");
+        inputCustomTip.removeAttribute("inert");
+      }
+
+      checkEmptyValues();
+    });
+  });
+}
+
+export function checkEmptyValues() {
+  let noValues = true;
+
+  const input = document.querySelectorAll(".input-required");
+
+  input.forEach((element) => {
+    if (element.value !== "") {
+      noValues = false;
+    }
+  });
+
+  const radiogroup = document.getElementById("radiogroup-tip");
+
+  if (radiogroup.dataset.selected !== "none") {
+    noValues = false;
+  }
+
+  const button = document.getElementById("reset-button");
+
+  if (noValues === false) {
+    button.removeAttribute("inert");
+  } else {
+    button.setAttribute("inert", "");
+  }
+}
+
+export function addInputErrorMessageTriggers() {
+  const inputRequired = document.querySelectorAll(".input-required");
+
+  inputRequired.forEach((input) => {
+    input.addEventListener("blur", function () {
+      const errorMessageName = this.getAttribute("aria-errormessage");
+      const errorMessage = document.getElementById(errorMessageName);
+      if (!this.value || this.value === "0") {
+        errorMessage.removeAttribute("hidden");
+        errorMessage.removeAttribute("inert");
+        this.setAttribute("aria-invalid", "true");
+      } else {
+        errorMessage.setAttribute("hidden", "");
+        errorMessage.setAttribute("inert", "");
+        this.setAttribute("aria-invalid", "false");
+      }
+      checkEmptyValues();
+    });
+  });
+}
+
+export function calculateValues(inputs) {
+  if (inputs === "error") {
+    return "error";
+  }
+
+  const bill = inputs.bill;
+  const tip = inputs.tip;
+  const population = inputs.population;
+
+  const amountTotalTip = bill.mul(tip);
+
+  const amountPerTip = amountTotalTip
+    .div(population)
+    .toDecimalPlaces(2, Decimal.ROUND_FLOOR);
+  const amountTotalTotal = bill.add(amountTotalTip);
+
+  const amountPerTotal = amountTotalTotal.div(population).toDecimalPlaces(2);
+
+  return {
+    tip: amountPerTip,
+    total: amountPerTotal,
+  };
+}
+
+export function displayAmounts(objectValues) {
+  const elementAmountTip = document.getElementById("amount-tip");
+
+  const elementAmountTotal = document.getElementById("amount-total");
+
+  if (objectValues === "error") {
+    const zero = new Decimal("0");
+    elementAmountTip.innerHTML = zero.toFixed(2);
+    elementAmountTotal.innerHTML = zero.toFixed(2);
+    return;
+  }
+
+  const tip = objectValues.tip;
+  const total = objectValues.total;
+
+  elementAmountTip.innerHTML = tip.toFixed(2);
+  elementAmountTotal.innerHTML = total.toFixed(2);
+}
+
+export function getInputs() {
+  const bill = document.getElementById("input-bill").value;
+
+  const elementSelectedTipId =
+    document.getElementById("radiogroup-tip").dataset.selected;
+  let tip = 0;
+
+  if (elementSelectedTipId === "none") {
+  } else if (elementSelectedTipId === "radio6") {
+    tip = document.getElementById("input-custom-tip").value / 100;
+  } else {
+    tip = document.getElementById(elementSelectedTipId).dataset.tip / 100;
+  }
+
+  const population = document.getElementById("input-population").value;
+
+  if (
+    !bill ||
+    !tip ||
+    !population ||
+    bill === "0" ||
+    tip === "0" ||
+    population === "0"
+  ) {
+    return "error";
+  } else {
+    return {
+      bill: new Decimal(bill),
+      tip: new Decimal(tip),
+      population: new Decimal(population),
+    };
+  }
+}
